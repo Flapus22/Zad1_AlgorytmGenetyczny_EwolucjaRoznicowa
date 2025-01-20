@@ -5,7 +5,6 @@ namespace Zad1_AlgorytmGenetyczny_EwolucjaRoznicowa;
 internal class DifferentialEvolution
 {
     public Statistics statistics;
-    public int maxGeneration = 50;
 
     private Settings setting;
 
@@ -37,7 +36,7 @@ internal class DifferentialEvolution
         population = GeneratePopulation();
 
         var generation = 0;
-        while (generation < maxGeneration)
+        while (generation < setting.maxGeneration)
         {
             statistics.CalculateStatistics(population);
             generation++;
@@ -63,6 +62,12 @@ internal class DifferentialEvolution
         {
             var tempIndividual = new Individual(population[rnd.Next(0, setting.populationCount)] + mutationRate *
                 (population[rnd.Next(0, setting.populationCount)] - population[rnd.Next(0, setting.populationCount)]));
+
+            for (int j = 0; j < setting.genotypeLength; j++)
+            {
+                tempIndividual.genotyp[j] = Math.Clamp(tempIndividual.genotyp[j], setting.minX, setting.maxX);
+            }
+
             result.Add(tempIndividual);
         }
         return result;

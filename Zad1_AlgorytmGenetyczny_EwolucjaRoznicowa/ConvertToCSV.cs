@@ -26,28 +26,18 @@ internal class ConvertToCSV
         StringBuilder csvContent = new StringBuilder();
 
         // Add header row
-        csvContent.Append("Best;Average;Worst");
-        //for (int j = 0; j < statisticsList.bestIndividualInIteration[0].genotyp.Length; j++)
-        //{
-        //    csvContent.Append($";X{j}");
-        //}
-        csvContent.AppendLine();
+        csvContent.AppendLine("Best;Average;Worst");
 
         // Add data rows
         for (int i = 0; i < statisticsList.bestIndividualInIteration.Count; i++)
         {
-            csvContent.Append($"{statisticsList.bestIndividualInIteration[i].Phenotype};{statisticsList.average[i]};{statisticsList.worst[i].Phenotype}");
-            //for (int j = 0; j < statisticsList.bestIndividualInIteration[i].genotyp.Length; j++)
-            //{
-            //    csvContent.Append($";{statisticsList.bestIndividualInIteration[i].genotyp[j]}");
-            //}
-            csvContent.AppendLine();
+            csvContent.AppendLine($"{statisticsList.bestIndividualInIteration[i].Phenotype};{statisticsList.average[i]};{statisticsList.worst[i].Phenotype}");
+          
         }
-        Console.WriteLine(csvContent.ToString());
+        //Console.WriteLine(csvContent.ToString());
         // Write CSV content to file
 
-        //File.WriteAllText(filePath, csvContent.ToString());
-        File.WriteAllLines(filePath, csvContent.ToString().Split('\n'));
+        File.WriteAllText(filePath, csvContent.ToString());
     }
 
     private void ConvertGenerations(Statistics statisticsList, string filePath)

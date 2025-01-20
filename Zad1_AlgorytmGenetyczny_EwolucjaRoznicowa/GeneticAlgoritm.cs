@@ -5,8 +5,7 @@ using Zad1_AlgorytmGenetyczny_EwolucjaRoznicowa;
 class GeneticAlgoritm
 {
     public Statistics statistics;
-    public double maxSelectionChance = 0.75;
-    public double minSelectionChance = 0.75;
+    public double maxChanceToSelection = 0.9;
 
     private Settings setting;
 
@@ -169,25 +168,24 @@ class GeneticAlgoritm
             case ExtremumEnum.Minimum: // promuj minimalne wartości
                 if(minPhenotype < 0)
                 {
-                    minPhenotype = (minPhenotype * 100) / minSelectionChance;
+                    minPhenotype = (minPhenotype * 100) / maxChanceToSelection;
                 }
                 else
                 {
-                    minPhenotype = (minPhenotype * minSelectionChance) / 100;
+                    minPhenotype = (minPhenotype * maxChanceToSelection) / 100;
                 }
                 break;
             case ExtremumEnum.Maximum: // promuj maksymalne wartości
                 if (maxPhenotype < 0)
                 {
-                    maxPhenotype = (maxPhenotype * maxSelectionChance) / 100;
+                    maxPhenotype = (maxPhenotype * maxChanceToSelection) / 100;
                 }
                 else
                 {
-                    maxPhenotype = (maxPhenotype * 100) / maxSelectionChance;
+                    maxPhenotype = (maxPhenotype * 100) / maxChanceToSelection;
                 }
                 break;
         }
-        if (minPhenotype > maxPhenotype) throw new Exception("minPhenotype>maxPhenotype");
 
         var i = 0;
         int resultPopulationCount = (int)(population.Count() * percentPopulactionSelection);

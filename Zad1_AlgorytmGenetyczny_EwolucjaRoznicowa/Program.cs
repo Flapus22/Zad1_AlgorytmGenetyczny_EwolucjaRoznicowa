@@ -11,13 +11,12 @@ Start_Levy();
 Console.WriteLine("Styblinski");
 Start_Styblinski();
 
-
 void Start_Bocha()
 {
     Settings set = new Settings(50, -100, 100, 100, 2);
 
-    GeneticAlgoritm geneticAlgoritm = new GeneticAlgoritm(set, 0.8, 0.1);
-    DifferentialEvolution difAlgoritm = new DifferentialEvolution(set, 0.8, 2);
+    GeneticAlgoritm geneticAlgoritm = new GeneticAlgoritm(set, 0.9, 0.1);
+    DifferentialEvolution difAlgoritm = new DifferentialEvolution(set, 0.6, 2);
 
     geneticAlgoritm.fenotypeFunction += BohachevskyFunction;
     difAlgoritm.fenotypeFunction += BohachevskyFunction;
@@ -39,8 +38,8 @@ void Start_Ackley()
 {
     Settings set = new Settings(1000, -35, 35, 100, 50);
 
-    GeneticAlgoritm geneticAlgoritm = new GeneticAlgoritm(set, 0.8, 0.1);
-    DifferentialEvolution difAlgoritm = new DifferentialEvolution(set, 0.8, 2);
+    GeneticAlgoritm geneticAlgoritm = new GeneticAlgoritm(set, 0.9, 0.1);
+    DifferentialEvolution difAlgoritm = new DifferentialEvolution(set, 0.6, 2);
 
     geneticAlgoritm.fenotypeFunction += AckleyFunction;
     difAlgoritm.fenotypeFunction += AckleyFunction;
@@ -62,8 +61,8 @@ void Start_Schwefel()
 {
     Settings set = new Settings(1000, -500, 500, 100, 50);
 
-    GeneticAlgoritm geneticAlgoritm = new GeneticAlgoritm(set, 0.8, 0.1);
-    DifferentialEvolution difAlgoritm = new DifferentialEvolution(set, 0.8, 2);
+    GeneticAlgoritm geneticAlgoritm = new GeneticAlgoritm(set, 0.9, 0.1);
+    DifferentialEvolution difAlgoritm = new DifferentialEvolution(set, 0.6, 2);
 
     geneticAlgoritm.fenotypeFunction += SchwefelFunction;
     difAlgoritm.fenotypeFunction += SchwefelFunction;
@@ -77,6 +76,7 @@ void Start_Schwefel()
     var converter = new ConvertToCSV();
     converter.ConvertStatisticsToCSV(geneticAlgoritm.statistics, "./gen_Basic_Schwefel.csv", ConvertToCSV.SaveType.Basic);
     converter.ConvertStatisticsToCSV(difAlgoritm.statistics, "./diff_Basic_Schwefel.csv", ConvertToCSV.SaveType.Basic);
+  
     //converter.ConvertStatisticsToCSV(geneticAlgoritm.statistics, "./gen_Gene_Schwefel.csv", ConvertToCSV.SaveType.Generations);
     //converter.ConvertStatisticsToCSV(difAlgoritm.statistics, "./diff_Gene_Schwefel.csv", ConvertToCSV.SaveType.Generations);
 }
@@ -85,8 +85,8 @@ void Start_Levy()
 {
     Settings set = new Settings(1000, -10, 10, 100, 50);
 
-    GeneticAlgoritm geneticAlgoritm = new GeneticAlgoritm(set, 0.8, 0.1);
-    DifferentialEvolution difAlgoritm = new DifferentialEvolution(set, 0.8, 2);
+    GeneticAlgoritm geneticAlgoritm = new GeneticAlgoritm(set, 0.9, 0.1);
+    DifferentialEvolution difAlgoritm = new DifferentialEvolution(set, 0.6, 2);
 
     geneticAlgoritm.fenotypeFunction += LevyFunction;
     difAlgoritm.fenotypeFunction += LevyFunction;
@@ -108,8 +108,8 @@ void Start_Styblinski()
 {
     Settings set = new Settings(1000, -5, 5, 100, 50);
 
-    GeneticAlgoritm geneticAlgoritm = new GeneticAlgoritm(set, 0.8, 0.1);
-    DifferentialEvolution difAlgoritm = new DifferentialEvolution(set, 0.8, 2);
+    GeneticAlgoritm geneticAlgoritm = new GeneticAlgoritm(set, 0.9, 0.1);
+    DifferentialEvolution difAlgoritm = new DifferentialEvolution(set, 0.6, 2);
 
     geneticAlgoritm.fenotypeFunction += StyblinskiFunction;
     difAlgoritm.fenotypeFunction += StyblinskiFunction;

@@ -48,7 +48,7 @@ public class Statistics
         };
 
         average.Add(population.Average(x => x.Phenotype));
-        worst.Add(new Individual(population.OrderBy(x => x.Phenotype).First()));
+        worst.Add(new Individual(population.OrderBy(x => x.Phenotype).Last()));
     }
 
     private void SaveGenerationMin(List<Individual> population)
